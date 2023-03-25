@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -8,14 +9,18 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent  implements OnInit {
 
-  constructor(private _router : Router) { }
+  constructor(private _router : Router,
+    private loadingCtrl: LoadingController) { }
 
   ngOnInit() {}
-  authUser(){
+  async authUser(){
+    const loading = await this.loadingCtrl.create({
+      message: 'Espere un momento...',
+      duration: 3000,
+    });
+    loading.present();
     setTimeout(() => {
       this._router.navigate(['chat']);
-
-    }, 1000);
-    console.log("hola");
+    }, 3000);
   }
 }
