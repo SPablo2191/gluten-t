@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { IonicModule } from '@ionic/angular';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     IonicModule,
     LoginRoutingModule
   ]
