@@ -14,13 +14,12 @@
 }
 
 @keyframes caret {
-  0% { color: var(--bgColor); }
+  0% { color: var(--background); }
   100% { color: black; }
 }
 
 .typewriter {
-  color: #1e247e;
-  --bgColor: white;
+  color: var( --ion-text-color);
   --lines: 500;
   --lineHeight: 1.5rem;
   --timePerLine: 1s;
@@ -30,7 +29,7 @@
   --time: calc(var(--lines) * var(--timePerLine));
   animation: grow var(--time) steps(var(--lines));
   animation-fill-mode: forwards;
-  background: var(--bgColor);
+  background: var(--background);
   line-height: var(--lineHeight);
   max-height: var(--lineHeight);
   overflow: hidden;
@@ -45,7 +44,7 @@
     type var(--timePerLine) linear infinite,
     carriageReturn var(--time) steps(var(--lines)) var(--lines),
     caret 0.5s steps(2) infinite;
-  background: var(--bgColor);
+  background: var(--background);
   border-left: 2px solid;
   bottom: 0;
   height: 2rem;
@@ -75,3 +74,18 @@ section {
 section:nth-child(2) { top: 10rem; }
 section:nth-child(3) { top: 20rem; }
 
+@media (prefers-color-scheme: dark) {
+
+  @keyframes caret {
+    0% { color: var(--ion-background-color); }
+  }
+
+  .typewriter {
+    background: var(--ion-background-color);
+  }
+
+  .typewriter::before {
+    background: var(--ion-background-color);
+  }
+
+}

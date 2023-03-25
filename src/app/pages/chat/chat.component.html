@@ -1,6 +1,12 @@
 <div class="flex align-items-center flex-column">
-  <img src="assets/icon/celina.png" alt="" class="w-20rem h-20rem">
-  <ui-type-writer
-  [text]="welcomeMessage"
-  ></ui-type-writer>
+  <img src="assets/icon/celina.png" alt="" class="w-20rem h-20rem" />
+  <ui-type-writer [text]="welcomeMessage"></ui-type-writer>
+  <div class="chatInput w-full flex flex-row">
+    <ui-input-text
+      placeholder="Ingrese una pregunta..."
+      fill="outline"
+      class="w-full"
+    ></ui-input-text>
+    <ui-button icon="send" slot="icon-only" color="light" class="mr-2"></ui-button>
+  </div>
 </div>
