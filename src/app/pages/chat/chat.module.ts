@@ -6,6 +6,7 @@ import { ChatComponent } from './chat.component';
 import { UiTypeWriterModule } from 'src/app/widgets/ui-type-writer/ui-type-writer.module';
 import { UiInputTextModule } from 'src/app/widgets/ui-input-text/ui-input-text.module';
 import { UiButtonModule } from 'src/app/widgets/ui-button/ui-button.module';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { UiButtonModule } from 'src/app/widgets/ui-button/ui-button.module';
     ChatRoutingModule,
     UiTypeWriterModule,
     UiInputTextModule,
-    UiButtonModule
+    UiButtonModule,
+    IonicModule
   ]
 })
 export class ChatModule { }
