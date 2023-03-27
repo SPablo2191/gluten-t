@@ -23,7 +23,7 @@
   --lines: 500;
   --lineHeight: 1.5rem;
   --timePerLine: 1s;
-  --widthCh: 25;
+  --widthCh: 22;
   --width: calc(var(--widthCh) * 1ch);
   /* do not touch the time property!!! */
   --time: calc(var(--lines) * var(--timePerLine));
