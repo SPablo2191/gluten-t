@@ -2,5 +2,6 @@
 	"appId": "io.ionic.starter",
 	"appName": "gluten´t",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+  "android":"/opt/android-studio-2022.1.1/android-studio/bin/studio.sh"
 }
