@@ -8,7 +8,7 @@ export class ChatDataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  get(){
-    return this.httpClient.get("http://127.0.0.1:5000");
+  sendMessage(data : any){
+    return this.httpClient.post("http://127.0.0.1:5000",data);
   }
 }

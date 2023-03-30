@@ -7,6 +7,7 @@ import { UiTypeWriterModule } from 'src/app/widgets/ui-type-writer/ui-type-write
 import { UiInputTextModule } from 'src/app/widgets/ui-input-text/ui-input-text.module';
 import { UiButtonModule } from 'src/app/widgets/ui-button/ui-button.module';
 import { IonicModule } from '@ionic/angular';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { IonicModule } from '@ionic/angular';
     UiTypeWriterModule,
     UiInputTextModule,
     UiButtonModule,
-    IonicModule
+    IonicModule,
+    ReactiveFormsModule
   ]
 })
 export class ChatModule { }

@@ -7,9 +7,21 @@
 <ion-footer class="item-input-inset"> </ion-footer>
 <ion-footer>
   <ion-toolbar>
+    <form [formGroup]="formGroup"></form>
     <ion-item lines="none">
-      <ui-input-text class="w-full" placeholder="Ingrese una pregunta..."></ui-input-text>
-      <ui-button icon="send-outline" slot="end" fill="clear" color="dark" (click)="send()"></ui-button>
+      <ui-input-text
+        class="w-full"
+        [formGroup]="formGroup"
+        name="textChat"
+        placeholder="Ingrese una pregunta..."
+      ></ui-input-text>
+      <ui-button
+        icon="send-outline"
+        slot="end"
+        fill="clear"
+        color="dark"
+        (click)="send()"
+      ></ui-button>
     </ion-item>
   </ion-toolbar>
 </ion-footer>

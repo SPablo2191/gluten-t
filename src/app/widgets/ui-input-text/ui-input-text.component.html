@@ -1,4 +1,8 @@
-<ion-item [fill]="fill">
-  <ion-label position="floating" *ngIf="label">{{label}}</ion-label>
-  <ion-input [placeholder]="placeholder"  [color]="color"></ion-input>
+<ion-item [fill]="fill" [formGroup]="formGroup">
+  <ion-label position="floating" *ngIf="label">{{ label }}</ion-label>
+  <ion-input
+    [placeholder]="placeholder"
+    [color]="color"
+    [formControlName]="name"
+  ></ion-input>
 </ion-item>

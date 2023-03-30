@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'ui-input-text',
@@ -7,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class UiInputTextComponent{
   @Input() label! : string;
+  @Input() formGroup! : FormGroup;
+  @Input() name! : string;
   @Input() placeholder! : string;
   @Input() fill : string = "default";
   @Input() color! : string;

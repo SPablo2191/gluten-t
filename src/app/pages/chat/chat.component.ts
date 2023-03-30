@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { log } from 'console';
 import { ChatDataService } from 'src/app/services/chat-data.service';
 
 @Component({
@@ -7,14 +9,19 @@ import { ChatDataService } from 'src/app/services/chat-data.service';
   styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent implements OnInit {
-  protected welcomeMessage =
-    `
+  protected welcomeMessage = `
     ¡Hola, mucho gusto! Soy Celina, un chatbot desarrollado para sugerirte las mejores opciones libre de gluten que te ayuden con tu dieta. ¡Preguntame lo que quieras!
     `;
-  constructor(private chatData : ChatDataService) {}
+  protected formGroup!: FormGroup;
+  constructor(private chatData: ChatDataService, private fb: FormBuilder) {}
 
-  ngOnInit() {}
-  send(){
-    this.chatData.get().subscribe(console.log);
+  ngOnInit() {
+    this.formGroup = this.fb.group({
+      textChat: [''],
+    });
+  }
+  send() {
+    let data = { message: this.formGroup.get('textChat')?.value };
+    this.chatData.sendMessage(data).subscribe(console.log);
   }
 }
