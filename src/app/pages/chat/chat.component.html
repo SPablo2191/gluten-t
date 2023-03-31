@@ -1,8 +1,17 @@
 <ion-content>
-  <div class="flex align-items-center flex-column">
+  <div class="flex align-items-center flex-column" *ngIf="chatMessages.length == 0;else elseblock">
     <img src="assets/icon/celina.png" alt="" class="w-20rem h-20rem" />
     <ui-type-writer [text]="welcomeMessage"></ui-type-writer>
   </div>
+  <ng-template #elseblock>
+    <div  *ngFor="let chatMessage of chatMessages">
+      <ui-chat-card
+      [text]="chatMessage.text"
+      [user]="chatMessage.user"
+      [customClass]="chatMessage.orientation"
+      ></ui-chat-card>
+    </div>
+  </ng-template>
 </ion-content>
 <ion-footer class="item-input-inset"> </ion-footer>
 <ion-footer>

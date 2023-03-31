@@ -8,6 +8,7 @@ import { UiInputTextModule } from 'src/app/widgets/ui-input-text/ui-input-text.m
 import { UiButtonModule } from 'src/app/widgets/ui-button/ui-button.module';
 import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UiChatCardModule } from 'src/app/widgets/ui-chat-card/ui-chat-card.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     UiInputTextModule,
     UiButtonModule,
     IonicModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UiChatCardModule 
   ]
 })
 export class ChatModule { }
