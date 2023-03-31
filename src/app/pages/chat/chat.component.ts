@@ -28,9 +28,14 @@ export class ChatComponent implements OnInit, OnDestroy {
     });
   }
   send() {
+    let inputValue : string = this.formGroup.get('textChat')?.value;
+    if(inputValue === ''){
+      console.log("hola entre");
+      return;
+    }
     let data: Message = {
       user: 'Yo',
-      text: this.formGroup.get('textChat')?.value,
+      text: inputValue,
       orientation: 'text-right',
     } as Message;
     this.chatMessages.push(data);

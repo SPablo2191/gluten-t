@@ -19,7 +19,7 @@
     <form [formGroup]="formGroup"></form>
     <ion-item lines="none">
       <ui-input-text
-        class="w-full"
+        class="w-full bottom-0"
         [formGroup]="formGroup"
         name="textChat"
         placeholder="Ingrese una pregunta..."
@@ -27,6 +27,8 @@
       <ui-button
         icon="send-outline"
         slot="end"
+        class="m-0"
+        size="large"
         fill="clear"
         color="dark"
         (click)="send()"
