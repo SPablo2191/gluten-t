@@ -10,9 +10,9 @@ import { ChatDataService } from 'src/app/services/chat-data.service';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss'],
 })
-export class ChatComponent implements OnInit,OnDestroy {
-  private subscriptions$ : Subscription = new Subscription();
-  protected chatMessages : Message[] = [];
+export class ChatComponent implements OnInit, OnDestroy {
+  private subscriptions$: Subscription = new Subscription();
+  protected chatMessages: Message[] = [];
   protected welcomeMessage = `
     ¡Hola, mucho gusto! Soy Celina, un chatbot desarrollado para sugerirte las mejores opciones libre de gluten que te ayuden con tu dieta. ¡Preguntame lo que quieras!
     `;
@@ -28,13 +28,22 @@ export class ChatComponent implements OnInit,OnDestroy {
     });
   }
   send() {
-    let data : Message = {user : 'Yo', text: this.formGroup.get('textChat')?.value, orientation :"text-right" } as Message;
+    let data: Message = {
+      user: 'Yo',
+      text: this.formGroup.get('textChat')?.value,
+      orientation: 'text-right',
+    } as Message;
     this.chatMessages.push(data);
-    this.subscriptions$.add(this.chatData.sendMessage(data).pipe(
-      map((response : Message)=>{
-        response.orientation = "text-left";
-        this.chatMessages.push(response);
-      })
-    ).subscribe());
+    this.subscriptions$.add(
+      this.chatData
+        .sendMessage(data)
+        .pipe(
+          map((response: Message) => {
+            response.orientation = 'text-left';
+            this.chatMessages.push(response);
+          })
+        )
+        .subscribe()
+    );
   }
 }
