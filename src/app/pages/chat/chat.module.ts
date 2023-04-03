@@ -9,6 +9,7 @@ import { UiButtonModule } from 'src/app/widgets/ui-button/ui-button.module';
 import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UiChatCardModule } from 'src/app/widgets/ui-chat-card/ui-chat-card.module';
+import { UiTypingBubbleModule } from 'src/app/widgets/ui-typing-bubble/ui-typing-bubble.module';
 
 
 @NgModule({
@@ -19,9 +20,10 @@ import { UiChatCardModule } from 'src/app/widgets/ui-chat-card/ui-chat-card.modu
     UiTypeWriterModule,
     UiInputTextModule,
     UiButtonModule,
+    UiTypingBubbleModule,
     IonicModule,
     ReactiveFormsModule,
-    UiChatCardModule 
+    UiChatCardModule
   ]
 })
 export class ChatModule { }

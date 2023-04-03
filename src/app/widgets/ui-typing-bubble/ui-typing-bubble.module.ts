@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { UiTypingBubbleComponent } from './ui-typing-bubble.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [UiTypingBubbleComponent],
+  imports: [CommonModule],
+  exports: [UiTypingBubbleComponent],
 })
-export class UiTypingBubbleModule { }
+export class UiTypingBubbleModule {}

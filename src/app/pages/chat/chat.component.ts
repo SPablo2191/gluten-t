@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { log } from 'console';
-import { Observable, Subscription, map } from 'rxjs';
+import { Subscription, map } from 'rxjs';
 import { Message } from 'src/app/models/message.interface';
 import { ChatDataService } from 'src/app/services/chat-data.service';
 
@@ -12,6 +11,7 @@ import { ChatDataService } from 'src/app/services/chat-data.service';
 })
 export class ChatComponent implements OnInit, OnDestroy {
   private subscriptions$: Subscription = new Subscription();
+  protected isTyping : boolean = false;
   protected chatMessages: Message[] = [];
   protected welcomeMessage = `
     ¡Hola, mucho gusto! Soy Celina, un chatbot desarrollado para sugerirte las mejores opciones libre de gluten que te ayuden con tu dieta. ¡Preguntame lo que quieras!
@@ -30,7 +30,6 @@ export class ChatComponent implements OnInit, OnDestroy {
   send() {
     let inputValue : string = this.formGroup.get('textChat')?.value;
     if(inputValue === ''){
-      console.log("hola entre");
       return;
     }
     let data: Message = {
@@ -39,6 +38,7 @@ export class ChatComponent implements OnInit, OnDestroy {
       orientation: 'text-right',
     } as Message;
     this.chatMessages.push(data);
+    this.isTyping = true;
     this.subscriptions$.add(
       this.chatData
         .sendMessage(data)
@@ -46,6 +46,7 @@ export class ChatComponent implements OnInit, OnDestroy {
           map((response: Message) => {
             response.orientation = 'text-left';
             this.chatMessages.push(response);
+            this.isTyping = false;
           })
         )
         .subscribe()

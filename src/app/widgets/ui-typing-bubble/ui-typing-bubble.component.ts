@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-ui-typing-bubble',
+  selector: 'ui-typing-bubble',
   templateUrl: './ui-typing-bubble.component.html',
   styleUrls: ['./ui-typing-bubble.component.scss'],
 })
