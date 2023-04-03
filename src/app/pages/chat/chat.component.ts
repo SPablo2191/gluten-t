@@ -37,6 +37,7 @@ export class ChatComponent implements OnInit, OnDestroy {
       text: inputValue,
       orientation: 'text-right',
     } as Message;
+    this.formGroup.reset();
     this.chatMessages.push(data);
     this.isTyping = true;
     this.subscriptions$.add(
