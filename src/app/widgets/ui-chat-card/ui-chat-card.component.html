@@ -1,10 +1,26 @@
 <ion-card [class]="customClass">
-  <ion-card-header>
-    <ion-card-subtitle>{{ user }}</ion-card-subtitle>
+  <ion-card-header class="m-0">
+    <!-- <ion-item lines="none">
+      <ion-avatar [slot]="iconPosition">
+        <img alt="Silhouette of a person's head" [src]="imageUrl" />
+      </ion-avatar>
+      <ion-label>{{ user }}</ion-label>
+    </ion-item> -->
+    <ion-chip>
+      <ion-avatar>
+        <img alt="Silhouette of a person's head" [src]="imageUrl" />
+      </ion-avatar>
+      <ion-label>{{ user }}</ion-label>
+    </ion-chip>
+
+    <!-- <ion-card-subtitle>{{ user }}</ion-card-subtitle>
+    <ion-avatar class="w-3rem h-3rem">
+      <img alt="Silhouette of a person's head" [src]="imageUrl" />
+    </ion-avatar> -->
   </ion-card-header>
 
-  <ion-card-content>
-    {{ text }}
+  <ion-card-content class="mx-3">
+    <p>{{ text }}</p>
     <ng-content></ng-content>
   </ion-card-content>
 </ion-card>

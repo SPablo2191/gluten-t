@@ -12,12 +12,16 @@
         [text]="chatMessage.text"
         [user]="chatMessage.user"
         [customClass]="chatMessage.orientation"
+        [imageUrl]="chatMessage.iconImage"
+        [iconPosition]="chatMessage.iconPosition"
       >
       </ui-chat-card>
     </div>
     <ui-chat-card *ngIf="isTyping"
         user="Celina"
+        imageUrl="assets/icon/celina.png"
         customClass="text-left"
+        iconPosition="start"
       >
       <ui-typing-bubble></ui-typing-bubble>
       </ui-chat-card>

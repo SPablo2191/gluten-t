@@ -3,4 +3,6 @@ export interface Message{
   text : string;
   sendTime : Date;
   orientation : string;
+  iconImage : string;
+  iconPosition : string;
 }

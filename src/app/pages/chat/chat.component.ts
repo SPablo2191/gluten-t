@@ -22,7 +22,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.userName = JSON.parse(localStorage.getItem('user')!).displayName;
+    this.userName = JSON.parse(localStorage.getItem('user')!).displayName.split(" ")[0];
     this.welcomeMessage = `
     ¡Hola, ${this.userName}! Soy Celina, un chatbot desarrollado para sugerirte las mejores opciones libre de gluten que te ayuden con tu dieta. ¡Preguntame lo que quieras!
     `;
@@ -39,6 +39,8 @@ export class ChatComponent implements OnInit, OnDestroy {
       user: this.userName,
       text: inputValue,
       orientation: 'text-right',
+      iconPosition : 'end',
+      iconImage : JSON.parse(localStorage.getItem('user')!).photoURL
     } as Message;
     this.formGroup.reset();
     this.chatMessages.push(data);
@@ -49,6 +51,8 @@ export class ChatComponent implements OnInit, OnDestroy {
         .pipe(
           map((response: Message) => {
             response.orientation = 'text-left';
+            response.iconImage = 'assets/icon/celina.png';
+            response.iconPosition = 'start';
             this.chatMessages.push(response);
             this.isTyping = false;
           })
