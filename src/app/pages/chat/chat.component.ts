@@ -11,11 +11,10 @@ import { ChatDataService } from 'src/app/services/chat-data.service';
 })
 export class ChatComponent implements OnInit, OnDestroy {
   private subscriptions$: Subscription = new Subscription();
-  protected isTyping : boolean = false;
+  protected isTyping: boolean = false;
   protected chatMessages: Message[] = [];
-  protected welcomeMessage = `
-    ¡Hola, mucho gusto! Soy Celina, un chatbot desarrollado para sugerirte las mejores opciones libre de gluten que te ayuden con tu dieta. ¡Preguntame lo que quieras!
-    `;
+  protected userName! : string;
+  protected welcomeMessage!: string;
   protected formGroup!: FormGroup;
   constructor(private chatData: ChatDataService, private fb: FormBuilder) {}
   ngOnDestroy(): void {
@@ -23,17 +22,21 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.userName = JSON.parse(localStorage.getItem('user')!).displayName;
+    this.welcomeMessage = `
+    ¡Hola, ${this.userName}! Soy Celina, un chatbot desarrollado para sugerirte las mejores opciones libre de gluten que te ayuden con tu dieta. ¡Preguntame lo que quieras!
+    `;
     this.formGroup = this.fb.group({
       textChat: [''],
     });
   }
   send() {
-    let inputValue : string = this.formGroup.get('textChat')?.value;
-    if(inputValue === ''){
+    let inputValue: string = this.formGroup.get('textChat')?.value;
+    if (inputValue === '') {
       return;
     }
     let data: Message = {
-      user: 'Yo',
+      user: this.userName,
       text: inputValue,
       orientation: 'text-right',
     } as Message;

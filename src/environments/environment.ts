@@ -2,10 +2,25 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+
 export const environment = {
   production: false,
-  url : 'https://gluten-t-api.onrender.com/'
+  url : 'https://gluten-t-api.onrender.com/',
+  firebase : {
+    apiKey: "AIzaSyDzlkgVhwU3JGmg4uXJVRgMUNIiRNrnON0",
+    authDomain: "proyectoceliaco-912e1.firebaseapp.com",
+    databaseURL: "https://proyectoceliaco-912e1-default-rtdb.firebaseio.com",
+    projectId: "proyectoceliaco-912e1",
+    storageBucket: "proyectoceliaco-912e1.appspot.com",
+    messagingSenderId: "355320740628",
+    appId: "1:355320740628:web:9071ea70cf04d2c68fa001",
+    measurementId: "G-CBD3D388JQ"
+  }
 };
+const app = initializeApp(environment.firebase);
+const auth = getAuth(app);
 
 /*
  * For easier debugging in development mode, you can import the following file
