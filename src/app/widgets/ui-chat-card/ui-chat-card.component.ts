@@ -9,6 +9,7 @@ export class UiChatCardComponent implements OnInit {
   @Input() user!: string;
   @Input() text!: string;
   @Input() imageUrl!: string;
+  @Input() imageDescription!: string;
   @Input() iconPosition!: string;
   @Input() customClass!: string;
   textOrientation!: string;

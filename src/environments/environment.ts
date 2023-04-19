@@ -7,7 +7,7 @@ import { getAuth } from "firebase/auth";
 
 export const environment = {
   production: false,
-  url : 'https://gluten-t-api.onrender.com/',
+  url : 'https://gluten-t-api.onrender.com/' || 'localhost:5000',
   firebase : {
     apiKey: "AIzaSyDzlkgVhwU3JGmg4uXJVRgMUNIiRNrnON0",
     authDomain: "proyectoceliaco-912e1.firebaseapp.com",
