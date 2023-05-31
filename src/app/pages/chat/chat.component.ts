@@ -35,6 +35,8 @@ export class ChatComponent implements OnInit, OnDestroy {
     if (inputValue === '') {
       return;
     }
+    console.log(JSON.parse(localStorage.getItem('user')!));
+
     let data: Message = {
       user: this.userName,
       text: inputValue,
